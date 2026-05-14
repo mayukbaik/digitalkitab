@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Video Pembelajaran</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="video-container">
+      <a id="btnBack" href="#" class="btn-back"> ← Kembali ke Kitab </a>
+
+      <div class="video-frame">
+        <iframe
+          id="videoPlayer"
+          src=""
+          title="YouTube video player"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+          "
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const videoId = params.get("video");
+
+      const kitab = params.get("kitab");
+
+      /* SET VIDEO */
+
+      document.getElementById("videoPlayer").src =
+        "https://www.youtube.com/embed/" + videoId;
+
+      /* SET TOMBOL KEMBALI */
+
+      if (kitab) {
+        document.getElementById("btnBack").href = kitab + ".html";
+      }
+    </script>
+  </body>
+</html>
